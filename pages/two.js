@@ -1,54 +1,26 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import { Counter } from '../src/components/Counter';
-import { useEffect, useState } from 'react';
 
-export default function Home() {
-  console.log('Home re-rendered');
-  const [thing, setThing] = useState(null);
-  const [count, setCount] = useState(99);
-
-  useEffect(() => {
-    setThing(Math.random());
-  }, []);
+export default function Two() {
+  console.log('Two re-rendered');
 
   return (
     <div className="container">
       <Head>
-        <title>Create Next App</title>
+        <title>Two</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main>
         <h1 className="title">
-          Here's a Heading
+          Two
         </h1>
 
-        <div className="description">
-          Google Optimize is making changes...
-          <Counter parentCount={count} parentSetCount={setCount} />
-        </div>
-        <small>{thing}</small>
         <p>
-          <Link href="/two">
-            <a>-Two-</a>
+          <Link href="/">
+            <a>-Home-</a>
           </Link>
         </p>
-
-        <div className="grid">
-          <div className="card">
-            <Counter />
-          </div>
-          <div className="card">
-            <Counter />
-          </div>
-          <div className="card">
-            <Counter />
-          </div>
-          <div className="card">
-            <Counter />
-          </div>
-        </div>
       </main>
 
       <footer>
