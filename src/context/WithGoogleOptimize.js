@@ -5,10 +5,7 @@ export const GoogleOptimizeContext = createContext();
 
 export const WithGoogleOptimize = ({ children, optimizeKey, analyticsKey }) => {
 
-  const value = {
-    optimizeKey,
-    analyticsKey,
-  };
+  const activate = () => window?.dataLayer?.push({'event': 'optimize.activate'});
 
   useEffect(() => {
     window.dataLayer = window.dataLayer || [];
@@ -18,8 +15,14 @@ export const WithGoogleOptimize = ({ children, optimizeKey, analyticsKey }) => {
   }, []);
 
   useEffect(() => {
-    window?.dataLayer?.push({'event': 'optimize.activate'});
+    activate();
   });
+
+  const value = {
+    optimizeKey,
+    analyticsKey,
+    activate,
+  };
 
   return (
     <GoogleOptimizeContext.Provider value={value}>
