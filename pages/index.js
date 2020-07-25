@@ -1,7 +1,14 @@
 import Head from 'next/head'
 import { Counter } from '../src/components/Counter'
+import { useEffect, useState } from 'react'
 
 export default function Home() {
+  const [thing, setThing] = useState(null);
+
+  useEffect(() => {
+    setThing(Math.random());
+  }, []);
+
   return (
     <div className="container">
       <Head>
@@ -17,6 +24,7 @@ export default function Home() {
         <p className="description">
           Google Optimize is making changes...
         </p>
+        <small>{thing}</small>
 
         <div className="grid">
           <div className="card">
