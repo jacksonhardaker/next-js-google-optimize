@@ -3,6 +3,7 @@ import { Counter } from '../src/components/Counter'
 import { useEffect, useState } from 'react'
 
 export default function Home() {
+  console.log('Home re-rendered');
   const [thing, setThing] = useState(null);
   const [count, setCount] = useState(99);
 
