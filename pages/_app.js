@@ -8,6 +8,11 @@ const _App = ({ Component, pageProps }) => {
     gtag('js', new Date());
     gtag('config', 'UA-164498009-2');
   }, []);
+
+  useEffect(() => {
+    window?.dataLayer?.push({'event': 'optimize.activate'});
+    console.log('App re-rendered');
+  });
   return (
     <>
       <Head>

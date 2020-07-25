@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 
 export default function Home() {
   const [thing, setThing] = useState(null);
+  const [count, setCount] = useState(99);
 
   useEffect(() => {
     setThing(Math.random());
@@ -21,10 +22,12 @@ export default function Home() {
           Here's a Heading
         </h1>
 
-        <p className="description">
+        <div className="description">
           Google Optimize is making changes...
-        </p>
+          <Counter parentCount={count} parentSetCount={setCount} />
+        </div>
         <small>{thing}</small>
+
 
         <div className="grid">
           <div className="card">
