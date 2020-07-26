@@ -5,7 +5,10 @@ export const GoogleOptimizeContext = createContext();
 
 export const WithGoogleOptimize = ({ children, optimizeKey, analyticsKey }) => {
 
-  const activate = () => window?.dataLayer?.push({'event': 'optimize.activate'});
+  const activate = (args = {}) => window?.dataLayer?.push({
+    event: 'optimize.activate',
+    ...args,
+  });
 
   useEffect(() => {
     window.dataLayer = window.dataLayer || [];

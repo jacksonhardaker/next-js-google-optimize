@@ -7,7 +7,7 @@ export const Counter = ({ parentCount, parentSetCount }) => {
 
   const onClick = () => {
     parentSetCount ? parentSetCount(count => count + 1) : setCount(count => count + 1);
-    setTimeout(activate, 1000);
+    setTimeout(() => activate({ rand: Math.random()}), 1000);
   };
   return (
     <>
