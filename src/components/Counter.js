@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useGoogleOptimize } from "../context/WithGoogleOptimize";
 
 export const Counter = ({ parentCount, parentSetCount }) => {
@@ -7,8 +7,12 @@ export const Counter = ({ parentCount, parentSetCount }) => {
 
   const onClick = () => {
     parentSetCount ? parentSetCount(count => count + 1) : setCount(count => count + 1);
-    setTimeout(() => activate({ rand: Math.random()}), 1000);
   };
+
+  useEffect(() => {
+    activate({ count });
+  }, [count]);
+
   return (
     <>
       <h2>{parentCount || count}</h2>
