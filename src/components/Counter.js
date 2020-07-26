@@ -13,6 +13,10 @@ export const Counter = ({ parentCount, parentSetCount }) => {
     activate({ count });
   }, [count]);
 
+  useEffect(() => {
+    activate({ count: parentCount });
+  }, [parentCount]);
+
   return (
     <>
       <h2>{parentCount || count}</h2>
