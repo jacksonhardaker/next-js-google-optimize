@@ -1,21 +1,11 @@
-import { useState, useEffect } from "react";
-import { useGoogleOptimize } from "../context/WithGoogleOptimize";
+import { useState } from "react";
 
 export const Counter = ({ parentCount, parentSetCount }) => {
   const [count, setCount] = useState(0);
-  const { activate } = useGoogleOptimize();
 
   const onClick = () => {
     parentSetCount ? parentSetCount(count => count + 1) : setCount(count => count + 1);
   };
-
-  useEffect(() => {
-    activate({ count });
-  }, [count]);
-
-  useEffect(() => {
-    activate({ count: parentCount });
-  }, [parentCount]);
 
   return (
     <>

@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import { createContext, useContext, useEffect } from 'react';
+import { useOnRouteChangeComplete } from '../hooks/useOnRouteChangeComplete';
 
 export const GoogleOptimizeContext = createContext();
 
@@ -10,16 +11,14 @@ export const WithGoogleOptimize = ({ children, optimizeKey, analyticsKey }) => {
     ...args,
   });
 
+  useOnRouteChangeComplete(activate, true);
+
   useEffect(() => {
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
     gtag('config', analyticsKey);
   }, []);
-
-  useEffect(() => {
-    activate();
-  });
 
   const value = {
     optimizeKey,
