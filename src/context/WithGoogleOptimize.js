@@ -1,10 +1,11 @@
 import Head from 'next/head';
-import { createContext, useContext, useEffect } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 import { useOnRouteChangeComplete } from '../hooks/useOnRouteChangeComplete';
 
 export const GoogleOptimizeContext = createContext();
 
 export const WithGoogleOptimize = ({ children, optimizeKey, analyticsKey }) => {
+  const [foo, setFoo] = useState(null);
 
   const activate = (args = {}) => window?.dataLayer?.push({
     event: 'optimize.activate',
@@ -24,6 +25,8 @@ export const WithGoogleOptimize = ({ children, optimizeKey, analyticsKey }) => {
     optimizeKey,
     analyticsKey,
     activate,
+    foo,
+    setFoo,
   };
 
   return (

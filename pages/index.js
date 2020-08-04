@@ -33,6 +33,9 @@ export default function Home() {
           <Link href="/two">
             <a>-Two-</a>
           </Link>
+          <Link href="/checkout/one">
+            <a>-Checkout-</a>
+          </Link>
         </p>
 
         <div className="grid">
