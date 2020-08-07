@@ -1,8 +1,8 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import { useCheckoutWrapper } from '../../src/components/CheckoutWrapper';
+import { useCheckoutWrapper, CheckoutWrapper } from '../../src/components/CheckoutWrapper';
 
-export default function Two() {
+function Two() {
   const { setThing } = useCheckoutWrapper();
   return (
     <div className="container">
@@ -93,6 +93,8 @@ export default function Two() {
   );
 }
 
+Two.Layout = CheckoutWrapper;
+
 export async function getServerSideProps(context) {
   return {
     props: {
@@ -100,3 +102,5 @@ export async function getServerSideProps(context) {
     }, // will be passed to the page component as props
   }
 }
+
+export default Two;
